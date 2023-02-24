@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_24_090807) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_092849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text "text"
+    t.integer "authorId"
+    t.integer "postId"
+    t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "posts_id", null: false
@@ -25,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_090807) do
   end
 
   create_table "likes", force: :cascade do |t|
+    t.integer "authorId"
+    t.integer "postId"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "posts_id", null: false
@@ -34,8 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_090807) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "authorId"
     t.string "title"
-    t.text "text"
+    t.string "text"
     t.integer "comments_counter"
     t.integer "likes_counter"
     t.datetime "created_at", null: false
@@ -48,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_090807) do
     t.string "name"
     t.string "photo"
     t.text "bio"
-    t.integer "post_counter"
+    t.integer "posts_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
