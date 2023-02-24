@@ -25,11 +25,18 @@ RSpec.describe Post, type: :model do
       subject.likes_counter = 0
       expect(subject.likes_counter).to eq(0)
     end
-
-    describe 'Should test methods in post model' do
-      it 'Post should have five recent comments' do
-        expect(subject.latest_five_comments).to eq(subject.comments.last(5))
+  end
+  
+  describe 'Should test methods in post model' do
+    before do
+      6.times do |comment_number|
+        Comment.create(posts_id: subject.id, text: "this is the comment #{comment_number}")
       end
+    end
+    
+
+    it 'Post should have five recent comments' do
+      expect(subject.most_recent_comments).to eq(subject.comments.last(5))
     end
   end
 end

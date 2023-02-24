@@ -11,7 +11,7 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'post id should be present' do
-    subject.post_id = nil
+    subject.posts_id = nil
     expect(subject).to_not be_valid
   end
 
