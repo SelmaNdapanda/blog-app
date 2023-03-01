@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  subject { Like.new(author_id: '1', posts_id: '2') }
+  subject { Like.new(author_id: '1', post_id: '2') }
 
   before { subject.save }
 
@@ -11,7 +11,7 @@ RSpec.describe Like, type: :model do
   end
 
   it 'post id should be present' do
-    subject.posts_id = nil
+    subject.post_id = nil
     expect(subject).to_not be_valid
   end
 end
