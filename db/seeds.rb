@@ -10,5 +10,16 @@
 # second_user = User.create([{ name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.'}])
 
 # Post.create([{author_id: 8, title: 'Hiii', text: 'This is my Second post'}])
+# Post.create([{author_id: 8, title: 'How are you', text: 'This is my third post'}])
+# Post.create([{author_id: 8, title: 'Excellent', text: 'This is my fourth post'}])
+# Post.create([{author_id: 9, title: 'Hiii', text: 'This is my first post'}])
 
 # Comment.create([{post_id: 1, author_id: 9, text: 'Hi Tom!'}])
+# Comment.create([{post_id: 1, author_id: 9, text: 'Heloo Tom!'}])
+# Comment.create([{post_id: 1, author_id: 9, text: 'Nice Post Tom!'}])
+# Comment.create([{post_id: 1, author_id: 9, text: 'Fantastic Tom!'}])
+# Comment.create([{post_id: 1, author_id: 9, text: 'This is great Tom!'}])
+# Comment.create([{post_id: 1, author_id: 9, text: 'Good day Tom!'}])
+
+# Comment.create([{post_id: 2, author_id: 9, text: 'This Hi is great!'}])
+# Comment.create([{post_id: 2, author_id: 9, text: 'Good day'}])
