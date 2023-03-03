@@ -1,1 +1,20 @@
 <h1>Here is a list of posts for users</h1>
+
+ <div class="posts_index_view">
+    <div class="posts-container">
+      <% @posts.each do |post| %>
+        <div class="post-container">
+          <div class="post-details">
+            <div class="post-title"><%= post.title %></div>
+            <div class="post-author">Author: <%= post.author.name %></div>
+            <div class="post-comments">Comments: <%= post.comments_counter %></div>
+            <div class="post-likes">Likes: <%= post.likes_counter %></div>
+          </div>
+          <div class="post-content">
+            <div class="post-text"><%= post.text %></div>
+            <div class="post-date">Date: <%= post.created_at %></div>
+          </div>
+        </div>
+      <%end%>
+    </div> 
+ </div>

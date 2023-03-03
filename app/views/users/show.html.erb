@@ -1,1 +1,33 @@
-<h1>This is User details</h1>
+<div class="users_show_view">
+  <div class="user-container">
+    <div class="user-text">
+      <div class="user-name"><%= @user.name %></div>
+      <div class="user-posts">Posts: <%= @user.posts_counter %></div>
+      <div class="user-comments">Comments: <%= @user.comments_counter %></div>
+      <div class="user-likes">Likes: <%= @user.likes_counter %></div>
+    </div>
+    <div class="user-content">
+      <div class="user-text"><%= @user.text %></div>
+      <div class="user-date">Date: <%= @user.created_at %></div>
+    </div>
+
+    <div class="user-posts">
+      <div class="posts-container">
+        <% @user.posts.each do |post| %>
+          <div class="post-container">
+            <div class="post-details">
+              <div class="post-title"><%= post.title %></div>
+              <div class="post-author">Author: <%= post.author.name %></div>
+              <div class="post-comments">Comments: <%= post.comments_counter %></div>
+              <div class="post-likes">Likes: <%= post.likes_counter %></div>
+            </div>
+            <div class="post-content">
+              <div class="post-text"><%= post.text %></div>
+              <div class="post-date">Date: <%= post.created_at %></div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
