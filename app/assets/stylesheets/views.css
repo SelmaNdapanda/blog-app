@@ -31,14 +31,15 @@ img {
   /* margin: 1rem 0 1rem 25rem; */
 }
 
-.user-name {
+h2 {
   font-size: 1.5rem;
   margin: 1rem auto 1rem 1rem;
 }
 
+
 .user-posts {
   float: right;
-  margin: 1rem 2rem 0 0;
+  margin: 1rem 2rem 0.5rem 0;
   font-size: 1.15rem;
   font-weight: 700;
 }
@@ -60,15 +61,14 @@ a:visited {
     margin: 1rem 0 1rem 25rem;
   } */
 
-.all-posts {
-  font-size: 1.15rem;
+/* .all-posts {
+  margin: 1rem 40rem 1rem 42rem;
+  font-size: 1.85rem;
   font-weight: 700;
-  margin: 0.85rem 0 1rem 1rem;
-}
+} */
 
 .posts-btn {
-  float: right;
-  margin: 0.85rem 2rem 1rem 0;
+  margin: 0.85rem 0 1rem 1rem;
   font-size: 1.15rem;
   font-weight: 700;
 }
@@ -76,9 +76,10 @@ a:visited {
 .post-content {
   border-style: solid;
   border-width: 4px;
-  height: 100px;
+  height: 130px;
   width: 700px;
-  margin: 1rem 0 1rem 25rem;
+  margin-top: 1.5rem;
+  margin-left: 25rem;
 }
 
 .context {
@@ -87,16 +88,47 @@ a:visited {
   font-weight: 700;
 }
 
+/* .post-title {
+  margin: 0.25rem 0 1rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+} */
+
+/* .post-text {
+  margin: 0.25rem 0 1rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+} */
+
+.post-count {
+  float: right;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0.75rem 2rem 0.25rem 0;
+}
+
 .comments-container {
   border-style: solid;
   border-width: 4px;
-  height: 100px;
+  height: 190px;
   width: 700px;
-  margin: 1rem 0 1rem 25rem;
+  margin-top: 1.5rem;
+  margin-left: 25rem;
 }
 
 .comments-context {
   margin: 0.25rem 0 1rem 1rem;
   font-size: 1.05rem;
   font-weight: 700;
+}
+
+.post-count-likes {
+  float: right;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: -4.2rem 2rem 0.25rem 0;
+}
+
+.post-details-post {
+  display: flex;
 }
