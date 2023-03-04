@@ -21,4 +21,11 @@
             </ul>
         <% end %>
     </div>
+    <div class="add-comment-container">
+        <%= link_to 'Comment', new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id), class: 'btn' %>
+    <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |f| %>
+      <%= f.submit 'Like', class: 'btn' %>
+    <% end %>
+    <%= link_to 'Back to posts', user_posts_path, class: 'btn' %>
+    <div>
 </div>

@@ -1,0 +1,9 @@
+<section class="main">
+  <h1>Add a comment</h1>
+  <%= form_with model: @comment, url: user_post_comments_path, method: :post, locals: true, scope: :comment do |f| %>
+    <div>
+      <%= f.text_area :text, placeholder: "Enter your comment", size: "50x3" %>
+    </div>
+    <%= f.submit 'Add Comment' %>
+  <% end %>
+</section>

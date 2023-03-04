@@ -1,4 +1,8 @@
 <div class="posts_index_view">
+
+<div class="link-new-post">
+  <%= link_to "New Post", new_user_post_path, class: "btn" %>
+</div>
   
   <% @posts.each do |post| %>
     <%= link_to "./posts/#{post.id}" do %>
