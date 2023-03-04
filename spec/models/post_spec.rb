@@ -30,7 +30,7 @@ RSpec.describe Post, type: :model do
   describe 'Should test methods in post model' do
     before do
       6.times do |comment_number|
-        Comment.create(posts_id: subject.id, text: "this is the comment #{comment_number}")
+        Comment.create(post_id: subject.id, text: "this is the comment #{comment_number}")
       end
     end
 

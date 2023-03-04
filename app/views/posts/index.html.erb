@@ -1,1 +1,28 @@
-<h1>Here is a list of posts for users</h1>
+<div class="posts_index_view">
+  
+  <% @posts.each do |post| %>
+    <%= link_to "./posts/#{post.id}" do %>
+    <div class="post-content">
+      <h3> Post : <%= post.title%></h3>
+      <p><%= post.text%></p>
+      <div class="post-count">
+        <span>Comments: <%= post.comments_counter%><span>
+        <span>Likes: <%= post.likes_counter%><span>
+      </div>
+    </div>
+    <% end %>
+    <% if post.comments.size > 0 %>
+        <ul class="comments-container">
+          <% post.most_recent_comments.each do |comment| %>
+            <li>
+              <span><em><b><%= comment.author.name %>: </b></em></span>
+              <span><%= comment.text %></span>
+            </li>
+          <% end %>
+        </ul>
+    <% end %>
+  <% end %>
+  <div class="all-posts">
+    <%= link_to "Pagination", user_posts_path %>
+  </div>
+</div>
