@@ -131,3 +131,17 @@ a:visited {
 .post-details-post {
   display: flex;
 }
+
+.btn {
+  margin: -2rem 2rem 1.75rem 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-style: solid;
+  border-width: 2px;
+  margin: 2rem;
+}
+
+.add-comment-container {
+  display: flex;
+  padding-top: 2rem;
+}
