@@ -1,20 +1,28 @@
-<div class="users_show_view">
+<article class = "main">
   <%= render 'shared/user', user: @user %>
 
-  <article class="user-content">
+  <article class="user-content container">
     <h3>Bio</h3>
     <span><%= @user.bio %><span>
   </article>
   
-  <% @user.most_recent_posts.each do |post| %>
-    <div class="post-content">
-        <h2 class="post-title"> Post : <%= post.title%></h2>
-        <p class="post-text"><%= post.text%></p>
+  <article class="posts-container container">
+    <% @user.most_recent_posts.each do |post| %>
+      <article class="post-content">
+        <h2 class="post-title"> Post <%= post.title %></h2>
+        <p><%= post.text.truncate_words(20, omission: '...(continued)') %></p>
         <div class="post-count">
-          <span>Comments: <%= post.comments_counter%><span>
-          <span>Likes: <%= post.likes_counter%><span>
+          <span><em><b>Comments: <%= post.comments_counter%><b><em><span>
+          <span><em><b>Likes: <%= post.likes_counter%><b><em><span>
         </div>
-    </div>
-  <% end %>
-  <button><%= link_to "See all posts", user_posts_path(@user.id) %></button>
-</div>
+        <%= link_to user_posts_path(@user.id, post.id) do %>
+          <button type="button" class="view-posts-btn my-1">View post</button>
+        <% end %>
+      </article>
+    <% end %>
+  </article>
+  <div class="btn-container container d-flex align-items-center">
+    <%= link_to "See all posts", user_posts_path(@user.id), class: 'btn btn-outline-info my-3 ' %>
+    <%= link_to "Add post", new_user_post_path(@user.id), class: 'btn btn-outline-primary mx-2' %>
+  </div>
+</article>

@@ -1,19 +1,18 @@
-<div class="posts_index_view">
+<article class='main container'>
+  <h1> All posts </h1>
+  <%= render 'shared/user', user: @user %>
 
-<div class="link-new-post">
-  <%= link_to "New Post", new_user_post_path, class: "btn" %>
-</div>
-  
+  <article class="posts-comments">
   <% @posts.each do |post| %>
     <%= link_to "./posts/#{post.id}" do %>
-    <div class="post-content">
+    <article class="post-content">
       <h3> Post : <%= post.title%></h3>
-      <p><%= post.text%></p>
+      <p><%= post.text.truncate_words(20, omission: '...(continued)') %></p>
       <div class="post-count">
-        <span>Comments: <%= post.comments_counter%><span>
-        <span>Likes: <%= post.likes_counter%><span>
+        <span><em><b>Comments: <%= post.comments_counter%></b></em></span>
+        <span><em><b>Likes: <%= post.likes_counter%></b></em></span>
       </div>
-    </div>
+    </article>
     <% end %>
     <% if post.comments.size > 0 %>
         <ul class="comments-container">
@@ -26,7 +25,8 @@
         </ul>
     <% end %>
   <% end %>
-  <div class="all-posts">
-    <%= link_to "Pagination", user_posts_path %>
+  </article>
+  <div class="all-posts d-flex justify-content-center">
+    <%= link_to "Pagination", user_posts_path, class: 'btn btn-outline-info my-3' %>
   </div>
-</div>
+</article>

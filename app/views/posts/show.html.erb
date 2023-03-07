@@ -1,31 +1,26 @@
-<div class="show_post_view">
-    <div class="post-container">
-        <div class="post-details-post">
-            <h2>Post <%= @post.title %> by <%= @post.author.name %></h2>
-             <div class="post-count">
-                <span>Comments: <%= @post.comments_counter%><span>
-                <span>Likes: <%= @post.likes_counter%><span>
-            </div>
-        </div>
-        <div class="post-content">
-            <p><%= @post.text %></p>
-            <div class="post-date">Date: <%= @post.created_at %></div>
-        </div>
+<article class="post-container container">
+  <div class="header flex">
+    <h2><%= @post.title %> by <%= @post.author.name %></h2>
+    <div class="comments-likes">
+      <span><em><b>Comments: <%= @post.comments_counter %></em></b></span>
+      <span><em><b>Likes: <%= @post.likes_counter %></em></b></span>
     </div>
-    <div class="post-comments">
-        <% if @post.comments.size != 0 %>
-            <ul class="comment-container">
-                <% @post.comments.each do |comment| %>
-                    <li><%= comment.author.name %>: <%= comment.text %></li>
-                <% end %>
-            </ul>
-        <% end %>
-    </div>
-    <div class="add-comment-container">
-        <%= link_to 'Comment', new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id), class: 'btn' %>
+  </div>
+  <article class="post-content">
+      <p><%= @post.text %></p>
+    </article>
+  <% unless @post.comments.size == 0 %>
+    <ul class="container">
+      <% @post.comments.each do |comment| %>
+        <li><%= comment.author.name %>: <%= comment.text %></li>
+      <% end %>
+  </ul>
+  <% end %>
+  <div class="d-flex">
+    <%= link_to 'Comment', new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id), class: 'btn btn-outline-primary' %>
     <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |f| %>
-      <%= f.submit 'Like', class: 'btn' %>
+      <%= f.submit 'Like', class: 'btn btn-outline-danger mx-2' %>
     <% end %>
-    <%= link_to 'Back to posts', user_posts_path, class: 'btn' %>
-    <div>
-</div>
+    <%= link_to 'Back to posts', user_posts_path, class: 'btn btn-outline-secondary' %>
+  </div>
+</article>
