@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @user = User.find(params[:user_id])
+    @posts = Post.includes(comments: [:author]).where(posts: { author_id: @user.id })
   end
 
   def show
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
   end
 
   def new
@@ -12,16 +14,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    new_post = current_user.posts.new(post_params)
 
     respond_to do |format|
       format.html do
-        if @post.save
-          flash[:success] = 'Post was successfully created.'
-          redirect_to user_post_path(current_user, @post)
+        if new_post.save
+          redirect_to "/users/#{new_post.author_id}/posts/", notice: 'Post was successfully created.'
         else
-          flash.now[:error] = 'Post was not created.'
-          render :new
+          render :new, status: 'Error occured will creating post!'
         end
       end
     end

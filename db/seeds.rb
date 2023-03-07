@@ -8,8 +8,12 @@
 
 # first_user = User.create([{name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.'}])
 # second_user = User.create([{ name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.'}])
+# https://avatars.githubusercontent.com/u/61165443?s=400&u=390894ffec3dbb185885f2366dfaff1309c5b355&v=4
+# https://avatars.githubusercontent.com/u/92553079?v=4
+# User.create([{name: 'Selma', photo: 'https://avatars.githubusercontent.com/u/61165443?s=400&u=390894ffec3dbb185885f2366dfaff1309c5b355&v=4', bio: 'Full-Stack Developer from Namibia'}])
+# User.create([{name: 'Ernest', photo: 'https://avatars.githubusercontent.com/u/92553079?v=4', bio: 'Web Developer from Kenya'}])
 
-# Post.create([{author_id: 8, title: 'Hiii', text: 'This is my Second post'}])
+# Post.create([{author_id: 13, title: 'Favourite food', text: 'My favourite food is chicken'}])
 # Post.create([{author_id: 8, title: 'How are you', text: 'This is my third post'}])
 # Post.create([{author_id: 8, title: 'Excellent', text: 'This is my fourth post'}])
 # Post.create([{author_id: 9, title: 'Hiii', text: 'This is my first post'}])

@@ -115,13 +115,18 @@ To run the project, execute the following command:
 
 <!-- AUTHOR -->
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Selma Hamutenya**
 
 - GitHub: [@SelmaNdapanda](https://github.com/SelmaNdapanda)
 - Twitter: [@SellohBlaq](https://twitter.com/sellohBlaq)
 - LinkedIn: [selma-hamutenya](www.linkedin.com/in/selma-hamutenya)
+
+👤 **Yonas Tesfu**
+
+- GitHub: [@yonas44](https://github.com/yonas44)
+- LinkedIn: [Yonas Tesfu](https://linkedin.com/in/yonas-tesfu)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

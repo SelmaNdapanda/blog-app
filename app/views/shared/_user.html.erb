@@ -1,11 +1,11 @@
-<div class="user-container">
+<div class="container d-flex p-3 my-3 border gap-5">
     <div class="user-img">
-        <img src="<%= user.photo %>"  alt="<%= user.name %>"/>
+        <img src="<%= user.photo %>"  alt="<%= user.name %>" width="200px" height="200px"/>
     </div>
-    <div class="user-text">
+    <div class="d-flex align-items-center gap-5" >
         <%= link_to user_path(user.id) do %>
-            <h2><%= user.name %></h2>
+            <h2 class="text-center text-decoration-none"><%= user.name %></h2>
         <% end %>
-        <span class="user-posts">Number of Posts: <%= user.posts_counter %></span>
+        <span class="user-posts me-4">Number of Posts: <%= user.posts_counter %></span>
     </div>
 </div>

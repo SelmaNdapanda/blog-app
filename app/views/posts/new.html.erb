@@ -1,14 +1,12 @@
-<section class="main">
+<section class="main container">
   <h1>New Post</h1>
   <%= form_with model: @post, url: user_posts_path, method: :post, locals: true, scope: :new_post do |f| %>
     <div class="title">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, placeholder: "Post title", class: "my-2", size: "56x3"%>
     </div>
     <div class="text_body">
-      <%= f.label :text %>
-      <%= f.text_area :text %>
+      <%= f.text_area :text, placeholder: "Type your post here", size: "60x7" %>
     </div>
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-outline-secondary'%>
   <% end %>
 </section>

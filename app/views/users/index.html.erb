@@ -1,5 +1,6 @@
-<section>
+<section class="main container">
+  <h1>All Users</h1>
   <% @users.each do |user| %>
-    <%= render 'shared/user', user: user  %>
+    <%= render 'shared/user', user: user %>
   <% end %>
 </section>
