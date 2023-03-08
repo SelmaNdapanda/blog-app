@@ -8,6 +8,6 @@ class LikesController < ApplicationController
     else
       flash.now[:error] = 'Like not added'
     end
-    redirect_to "/users/#{current_user.id}/posts"
+    redirect_to "/users/#{current_user.id}/posts/#{@post.id}"
   end
 end
