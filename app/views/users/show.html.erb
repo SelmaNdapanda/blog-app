@@ -15,7 +15,7 @@
           <span><em><b>Comments: <%= post.comments_counter%><b><em><span>
           <span><em><b>Likes: <%= post.likes_counter%><b><em><span>
         </div>
-        <%= link_to user_posts_path(@user.id, post.id) do %>
+        <%= link_to user_post_path(@user.id, post.id) do %>
           <button type="button" class="view-posts-btn my-1">View post</button>
         <% end %>
       </article>
