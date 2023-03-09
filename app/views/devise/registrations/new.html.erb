@@ -22,6 +22,11 @@
       <%= f.label :bio %><br />
       <%= f.text_area :bio, autofocus: true, autocomplete: "bio", class: "form-control" %>
     </div>
+
+    <div class="field mt-3 w-200">
+      <%= f.label :role %><br />
+      <%= f.select :role, ['User', 'Admin'], class: "form-control" %>
+    </div>
     
     <div class="field mt-3 w-200">
       <%= f.label :password %>
