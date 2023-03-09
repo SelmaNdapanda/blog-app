@@ -4,13 +4,24 @@ class Ability
   def initialize(user)
     # Define abilities for the user here. For example:
 
+    # return unless user.present?
+
+    # can :manage, Post, author: user
+    # can :manage, Comment, author: user
+    # return unless user.role == 'admin'
+
+    # can :manage, :all
+
     return unless user.present?
 
-    can :manage, Post, author: user
-    can :manage, Comment, author: user
-    return unless user.role == 'admin'
+    can :read, Post
 
-    can :manage, :all
+    can %i[create destroy], Comment, author: user
+
+    can %i[create destroy], Like, author: user
+
+    can %i[create destroy], Post, author: user
+
     #
     #   return unless user.present?
     #   can :read, :all

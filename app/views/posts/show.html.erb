@@ -1,20 +1,20 @@
 <article class="post-container container">
   <div class="header flex">
     <h2><%= @post.title %> by <%= @post.author.name %></h2>
+  <article class="post-content">
+      <p><%= @post.text %></p>
+    </article>
     <div class="comments-likes">
       <span><em><b>Comments: <%= @post.comments_counter %></em></b></span>
       <span><em><b>Likes: <%= @post.likes_counter %></em></b></span>
     </div>
   </div>
-  <article class="post-content">
-      <p><%= @post.text %></p>
-    </article>
   <% unless @post.comments.size == 0 %>
     <ul class="container">
       <% @post.comments.each do |comment| %>
         <li><%= comment.author.name %>: <%= comment.text %></li>
-        <% if can? :destroy, Comment %>
-          <%=button_to "delete", user_post_comment_path(current_user, @post, comment), method: :delete %>
+        <% if can? :destroy, comment %>
+          <%=button_to "delete", user_post_comment_path(@post.author, @post, comment), method: :delete %>
         <% end %>
       <% end %>
   </ul>

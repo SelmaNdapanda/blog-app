@@ -4,7 +4,6 @@
 
   <article class="posts-comments">
   <% @posts.each do |post| %>
-    <%= link_to "./posts/#{post.id}" do %>
     <article class="post-content">
       <h3> Post : <%= post.title%></h3>
       <p><%= post.text.truncate_words(20, omission: '...(continued)') %></p>
@@ -13,15 +12,14 @@
         <span><em><b>Likes: <%= post.likes_counter%></b></em></span>
       </div>
       <ul>
-        <% if can? :destroy, Post %>
-          <li><%= button_to "del", user_post_path(post.author, post.id), method: :delete  %></li>
+        <% if can? :destroy, post %>
+          <li><%= button_to "Delete", user_post_path(post.author, post.id), method: :delete  %></li>
         <%end%>
         <%= link_to user_post_path(@user.id, post.id) do %>
           <button type="button" class="view-posts-btn my-1">View post</button>
         <% end %>
       </ul>
     </article>
-    <% end %>
     <% if post.comments.size > 0 %>
         <ul class="comments-container">
           <% post.most_recent_comments.each do |comment| %>
