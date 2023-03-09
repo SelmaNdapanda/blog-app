@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.author.decrement!(:posts_counter)
     Post.delete(params[:id])
-      redirect_to "/users/#{current_user.id}/posts/", notice: 'Post was successfully deleted.'
+    redirect_to "/users/#{current_user.id}/posts/", notice: 'Post was successfully deleted.'
   end
 
   private
