@@ -1,6 +1,21 @@
 class CommentsController < ApplicationController
+  
+  def index
+    post = Post.includes(:comments).find(params[:post_id])
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => post.comments }
+    end
+  end
+  
   def new
     @comment = Comment.new
+
+    respond_to do |format|
+      format.html
+      format.json { redirect_to new_user_post_comment_path(params[:user_id], params[:post_id]) }
+    end
   end
 
   def create
