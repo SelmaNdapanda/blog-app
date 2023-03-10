@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource except: [:index, :show]
+  load_and_authorize_resource except: %i[index show]
 
   def index
     @user = User.find(params[:user_id])
@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @posts }
+      format.json { render json: @posts }
     end
   end
 
@@ -19,10 +19,10 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-  
+
   def create
     new_post = current_user.posts.new(post_params)
-    
+
     respond_to do |format|
       format.html do
         if new_post.save
@@ -31,8 +31,8 @@ class PostsController < ApplicationController
           render :new, status: 'Error occured will creating post!'
         end
       end
-      
-      format.json { render :json => @posts }
+
+      format.json { render json: @posts }
     end
   end
 
@@ -51,9 +51,9 @@ class PostsController < ApplicationController
 
   def renderer(input)
     respond_to do |format|
-      format.html 
-      format.xml  { render :xml => input }
-      format.json { render :json => input }
+      format.html
+      format.xml { render xml: input }
+      format.json { render json: input }
     end
   end
 end
