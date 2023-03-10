@@ -1,9 +1,14 @@
 class PostsController < ApplicationController
-  # load_and_authorize_resource
+  load_and_authorize_resource except: %i[index show]
 
   def index
     @user = User.find(params[:user_id])
     @posts = Post.includes(comments: [:author]).where(posts: { author_id: @user.id })
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
   end
 
   def show
@@ -26,6 +31,8 @@ class PostsController < ApplicationController
           render :new, status: 'Error occured will creating post!'
         end
       end
+
+      format.json { render json: @posts }
     end
   end
 
@@ -40,5 +47,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:new_post).permit(:title, :text)
+  end
+
+  def renderer(input)
+    respond_to do |format|
+      format.html
+      format.xml { render xml: input }
+      format.json { render json: input }
+    end
   end
 end
